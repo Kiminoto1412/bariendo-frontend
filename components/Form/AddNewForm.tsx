@@ -65,7 +65,6 @@ const AddNewForm: React.FC<GenericFormProps> = ({
   const { onOpen } = useModal();
   const { modalSelectedRow, setModalSelectedRow } = useModalTableStore();
   const onOpenModal = (modalName: string, data?: any) => {
-    // console.log("modalName: ", modalName);
     onOpen(modalName, data);
   };
 
@@ -73,7 +72,6 @@ const AddNewForm: React.FC<GenericFormProps> = ({
     <Form {...form}>
       <form className="grid md:grid-cols-2 gap-x-2 gap-y-2">
         {formData?.map((el, idx) => {
-          // console.log("el: ", el);
           return el?.type === "input" ? (
             <FormField
               key={idx}
@@ -134,7 +132,6 @@ const AddNewForm: React.FC<GenericFormProps> = ({
                           );
                           const matchingSelector =
                             matchingObject?.selectors?.find((item) => {
-                              // console.log("item: ", item);
                               return item[el.valueKey as string] == value;
                             });
 
@@ -154,7 +151,6 @@ const AddNewForm: React.FC<GenericFormProps> = ({
                             }
                           }
 
-                          // console.log("form", form.getValues());
                         }
                       }}
                       value={field.value?.toString()}

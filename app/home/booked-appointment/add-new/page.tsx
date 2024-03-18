@@ -157,7 +157,6 @@ function AddNewBookedAppointment() {
   };
 
   const handleTimeSlotSelection = (timeSlot: ITimeSlot) => {
-    console.log("timeSlot: ", timeSlot);
     const index = selectedTimeSlots.findIndex(
       (slot) => slot.id === timeSlot.id
     );
@@ -173,8 +172,7 @@ function AddNewBookedAppointment() {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log("values: ", values);
-      const { date, doctorId, month, specialist } = form.getValues();
+      const { date, doctorId, month, specialist } = values;
       const formattedDate = new Date(year, month - 1, date);
       const formattedDateString = formattedDate.toISOString();
       const newFormData = {
@@ -186,7 +184,6 @@ function AddNewBookedAppointment() {
           { date: formattedDateString, timeSlots: selectedTimeSlots },
         ],
       };
-      console.log("newFormData: ", newFormData);
 
       const res = await createAppointment(axiosAuth, newFormData);
 

@@ -6,7 +6,6 @@ export function formatDateValue(value: any): string {
       year: "numeric",
     });
   }
-  // Add more type checks or formatting logic as needed
   return String(value);
 }
 
@@ -81,23 +80,19 @@ export const generateDatesOfMonth = (year: number, month: number) => {
   const currentMonth = today.getMonth() + 1;
   const currentDate = today.getDate();
 
-  const numDays = new Date(year, month, 0).getDate(); // Get the number of days in the month
+  const numDays = new Date(year, month, 0).getDate();
   const dates = [];
 
   for (let day = 1; day <= numDays; day++) {
-    const date = new Date(year, month - 1, day); // Month is 0-based in JavaScript Date object
-    const dayOfWeek = date.toLocaleDateString("en-US", { weekday: "short" }); // Get the short day name (e.g., "Mon", "Tue")
-    // Check if the date is greater than or equal to today's date
+    const date = new Date(year, month - 1, day);
+    const dayOfWeek = date.toLocaleDateString("en-US", { weekday: "short" });
     if (
       year > currentYear ||
       (year === currentYear && month > currentMonth) ||
       (year === currentYear && month === currentMonth && day >= currentDate)
     ) {
-      console.log(date, "date");
-      console.log(dayOfWeek, "dayOfWeek");
       dates.push({ day, dayOfWeek });
     }
   }
-  console.log(dates, "dates");
   return dates;
 };
