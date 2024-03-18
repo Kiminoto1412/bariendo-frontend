@@ -3,8 +3,6 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "@/components/providers/Providers";
-import AppBar from "@/components/AppBar/AppBar";
-import { ModalProvider } from "@/components/providers/modal-provider";
 import { AlertProvider } from "@/components/providers/alert-provider";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -60,13 +58,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-seogoeUi ${seogoeUi.variable} `}>
         <Providers>
-          <StyledEngineProvider injectFirst>
-            {/* <AppBar /> */}
-            {/* <ModalProvider /> */}
-            <AlertProvider />
-            <ToastContainer />
-            {children}
-          </StyledEngineProvider>
+          {/* <StyledEngineProvider injectFirst> */}
+          <AlertProvider />
+          <ToastContainer />
+          {children}
+          {/* </StyledEngineProvider> */}
         </Providers>
       </body>
     </html>

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import AlertLoginOrganization from "../Alert/AlertLoginOrganization";
-import ChangePasswordDialogue from "../Login/ChangePasswordDialogue";
 
 export const AlertProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -18,7 +17,6 @@ export const AlertProvider = () => {
   return (
     <>
       <AlertLoginOrganization />
-      <ChangePasswordDialogue />
     </>
   );
 };

@@ -279,7 +279,7 @@ function AddNewBookedAppointment() {
                     control={form.control}
                     name="doctorId"
                     render={({ field, fieldState }) => (
-                      <FormItem className="col-span-3">
+                      <FormItem className="col-span-3 mt-4">
                         <FormControl>
                           <Select
                             onValueChange={(value) => {
