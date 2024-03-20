@@ -158,14 +158,14 @@ function AddNewBookedAppointment() {
 
   const handleTimeSlotSelection = (timeSlot: ITimeSlot) => {
     const index = selectedTimeSlots.findIndex(
-      (slot) => slot.id === timeSlot.id
+      (slot) => slot.time === timeSlot.time
     );
 
     if (index === -1) {
       setSelectedTimeSlots((prevSlots) => [...prevSlots, timeSlot]);
     } else {
       setSelectedTimeSlots((prevSlots) =>
-        prevSlots.filter((slot) => slot.id !== timeSlot.id)
+        prevSlots.filter((slot) => slot.time !== timeSlot.time)
       );
     }
   };
